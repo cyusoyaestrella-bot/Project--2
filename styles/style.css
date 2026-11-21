@@ -329,6 +329,57 @@ body {
     font-weight: 500;
 }
 
+.hobby-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.35rem 0.8rem 0.35rem 0.4rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hobby-pill:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+}
+
+.hobby-sticker {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.65rem;
+    font-size: 1.05rem;
+}
+
+.sticker-film {
+    background-color: #fee2e2;
+}
+
+.sticker-music {
+    background-color: #fef3c7;
+}
+
+.sticker-singing {
+    background-color: #dbeafe;
+}
+
+.sticker-photo {
+    background-color: #dcfce7;
+}
+
+.sticker-games {
+    background-color: #f3e8ff;
+}
+
+.sticker-reading {
+    background-color: #ffedd5;
+}
+
+.sticker-travel {
+    background-color: #e0e7ff;
+}
+
 /* Projects Grid */
 .projects-grid {
     display: grid;
