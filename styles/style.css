@@ -290,10 +290,30 @@ body {
 }
 
 .timeline-item {
-    background-color: var(--surface-elevated);
-    border-left: 4px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, var(--surface-elevated), var(--surface));
+    border: 1px solid var(--border);
     padding: 1rem 1.25rem;
     border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+}
+
+.timeline-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 28px rgba(245, 158, 11, 0.13);
 }
 
 .year {
@@ -319,6 +339,12 @@ body {
     gap: 0.6rem;
 }
 
+.hobby-list,
+.language-list {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
 .pill {
     background-color: var(--surface-elevated);
     color: var(--text);
@@ -329,11 +355,41 @@ body {
     font-weight: 500;
 }
 
-.hobby-pill {
-    display: inline-flex;
+.hobby-pill,
+.language-pill {
+    display: flex;
     align-items: center;
     gap: 0.55rem;
-    padding: 0.35rem 0.8rem 0.35rem 0.4rem;
+    width: 100%;
+    padding: 0.55rem 0.8rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, var(--surface-elevated), var(--surface));
+    border-color: var(--border);
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-pill::before,
+.language-pill::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.hobby-pill:hover,
+.language-pill:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 28px rgba(245, 158, 11, 0.13);
 }
 
 .hobby-sticker {
@@ -474,7 +530,8 @@ body {
     margin-top: 1.25rem;
 }
 
-.contact-actions .btn {
+.contact-actions .btn,
+.hero-actions .btn {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--gold-bright);
@@ -486,7 +543,13 @@ body {
         background-color 0.25s ease;
 }
 
-.contact-actions .btn::before {
+.hero-actions .btn {
+    background-color: var(--gold);
+    color: #0b1120;
+}
+
+.contact-actions .btn::before,
+.hero-actions .btn::before {
     content: "";
     position: absolute;
     top: 0;
@@ -504,7 +567,9 @@ body {
 }
 
 .contact-actions .btn:hover,
-.contact-actions .btn:focus-visible {
+.contact-actions .btn:focus-visible,
+.hero-actions .btn:hover,
+.hero-actions .btn:focus-visible {
     border-color: #fde68a;
     box-shadow:
         0 0 12px rgba(251, 191, 36, 0.42),
@@ -513,7 +578,9 @@ body {
 }
 
 .contact-actions .btn:hover::before,
-.contact-actions .btn:focus-visible::before {
+.contact-actions .btn:focus-visible::before,
+.hero-actions .btn:hover::before,
+.hero-actions .btn:focus-visible::before {
     left: 115%;
 }
 
