@@ -429,6 +429,49 @@ body {
     margin-top: 1.25rem;
 }
 
+.contact-actions .btn {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gold-bright);
+    box-shadow: 0 0 0 rgba(251, 191, 36, 0);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.contact-actions .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -35%;
+    width: 24%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.75),
+        transparent
+    );
+    transform: skewX(-18deg);
+    transition: left 0.55s ease;
+}
+
+.contact-actions .btn:hover,
+.contact-actions .btn:focus-visible {
+    border-color: #fde68a;
+    box-shadow:
+        0 0 12px rgba(251, 191, 36, 0.42),
+        0 0 28px rgba(245, 158, 11, 0.22),
+        0 8px 20px rgba(245, 158, 11, 0.16);
+}
+
+.contact-actions .btn:hover::before,
+.contact-actions .btn:focus-visible::before {
+    left: 115%;
+}
+
 a {
     color: var(--gold-bright);
 }
